@@ -9,11 +9,11 @@ declare global {
     interface IntrinsicElements {
       'spline-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         url?: string;
-        loading?: 'lazy' | 'eager';
-        'loading-anim'?: string;
-        'loading-anim-type'?: 'spinner' | 'logo';
+        loading?: string;
         autoplay?: string | boolean;
+        style?: React.CSSProperties | string;
       };
+      'script': React.DetailedHTMLProps<React.ScriptHTMLAttributes<HTMLScriptElement>, HTMLScriptElement>;
     }
   }
 }

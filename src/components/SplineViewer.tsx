@@ -42,7 +42,7 @@ const SplineViewer: React.FC<SplineViewerProps> = ({
     // Create and load the script
     const script = document.createElement('script');
     script.type = 'module';
-    script.src = 'https://unpkg.com/@splinetool/viewer@1.10.82/build/spline-viewer.js';
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.10.85/build/spline-viewer.js';
     script.crossOrigin = 'anonymous';
 
     script.onload = () => {

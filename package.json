@@ -3,20 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:sheets": "curl -X POST http://localhost:3000/api/test-sheets"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.3.0",
     "framer-motion": "^12.23.22",
+    "googleapis": "^164.1.0",
     "gsap": "^3.13.0",
+    "mongoose": "^8.19.2",
     "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "three": "^0.180.0"
+    "react-hook-form": "^7.65.0",
+    "three": "^0.180.0",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

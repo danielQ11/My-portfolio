@@ -1,4 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Database Configuration (MongoDB)
+
+This project uses MongoDB with Mongoose for data persistence.
+
+### Setup Instructions
+
+1. **Install MongoDB** (if not already installed):
+   - Download from [MongoDB Community Server](https://www.mongodb.com/try/download/community)
+   - Or use Docker: `docker run -d -p 27017:27017 --name mongodb mongo:latest`
+
+2. **Create Environment Variables**:
+   Create a `.env.local` file in the root directory with the following variables:
+
+   ```env
+   MONGODB_URI=mongodb://localhost:27017
+   DB_NAME=portafolio_contact
+   MONGODB_URI_PROD=your_production_mongodb_uri_here
+   ```
+
+3. **Database Collections**:
+   - **Database Name**: `portafolio_contact`
+   - **Collection**: `contactmessages` (automatically created by Mongoose)
+
+4. **API Endpoints**:
+   - `POST /api/contact` - Submit contact form
+   - `GET /api/contact` - Retrieve all contact messages (admin use)
+
+### Database Schema
+
+The contact messages are stored with the following structure:
+
+```javascript
+{
+  id: String,        // UUID generated for each message
+  fullName: String,  // Required, max 100 chars
+  email: String,     // Required, validated email, max 255 chars
+  message: String,   // Required, max 1000 chars
+  createdAt: Date    // Automatic timestamp
+}
+```
+
+### Development
+
+The database connection is automatically handled with connection pooling for optimal performance.
 
 ## Getting Started
 

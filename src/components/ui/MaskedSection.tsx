@@ -1,18 +1,12 @@
-"use client";
-import { ReactNode } from "react";
-
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { ReactNode, useRef, useEffect } from "react";
+import { gsap } from "gsap";
 
 interface ExpandingMaskedSectionProps {
   imageSrc: string;
   maskSrc?: string; // máscara opcional
   title?: string;
   text?: string;
-children?: ReactNode; 
+  children?: React.ReactNode;
 }
 
 export default function ExpandingMaskedSection({
@@ -20,52 +14,40 @@ export default function ExpandingMaskedSection({
   maskSrc,
   title,
   text,
+  children,
 }: ExpandingMaskedSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current || !imageRef.current || !contentRef.current) return;
+    const ctx = gsap.context(() => {
+      // Timeline optimizada para MaskedSection
+      const tl = gsap.timeline();
 
-    // Animación de expansión de la imagen
-    gsap.fromTo(
-      imageRef.current,
-      { scale: 0.5, opacity: 0 },
-      {
-        scale: 1.5,
-        opacity: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 20%",
-          end: "bottom 10%",
-          scrub: true,
-        },
+      // 1. Imagen con máscara optimizada
+      if (sectionRef.current) {
+        tl.fromTo(sectionRef.current,
+          { opacity: 0, scale: 0.95 },
+          { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }
+        );
       }
-    );
 
-    // Animación de aparición del contenido
-    gsap.fromTo(
-      contentRef.current,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 0,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 50%",
-          scrub: true,
-        },
+      // 2. Contenido optimizado
+      if (contentRef.current) {
+        tl.fromTo(contentRef.current,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          "-=0.3"
+        );
       }
-    );
+
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
-      ref={sectionRef}
       className="w-full h-screen relative flex items-center justify-center overflow-hidden"
       style={{
         WebkitMaskImage: maskSrc ? `url(${maskSrc})` : undefined,
@@ -75,24 +57,19 @@ export default function ExpandingMaskedSection({
         maskImage: maskSrc ? `url(${maskSrc})` : undefined,
         maskRepeat: "no-repeat",
         maskSize: "650px 650px",
-
         maskPosition: "center",
       }}
     >
       {/* Imagen que se expande */}
       <div
-        ref={imageRef}
+        ref={sectionRef}
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${imageSrc})` }}
       />
 
       {/* Contenido */}
-      <div
-        ref={contentRef}
-        className="absolute inset-0 flex flex-col items-center justify-center text-center px-8"
-      >
-        <h2 className="text-5xl text-white font-bold mb-4">{title}</h2>
-        <p className="text-xl text-white max-w-2xl">{text}</p>
+      <div ref={contentRef} className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+        {children}
       </div>
     </section>
   );

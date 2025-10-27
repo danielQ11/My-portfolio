@@ -11,69 +11,71 @@ export interface Project {
   featured: boolean;
 }
 
+
+
 export const projects: Project[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    description: "Plataforma completa de comercio electrónico con carrito de compras, pagos integrados y panel de administración. Incluye gestión de inventario en tiempo real y analíticas de ventas.",
-    technologies: "React + Node.js + PostgreSQL + Stripe",
-    splineUrl: "https://prod.spline.design/dfS9lWZ3IYehQvFS/scene.splinecode",
-    githubUrl: "https://github.com/tu-usuario/ecommerce-platform",
-    liveUrl: "https://tu-ecommerce.vercel.app",
+    title: "Prometio calculator with testing",
+    description: "Platform to calculate the average of a school with all the necessary validations, done with next and with testing with jest.",
+    technologies: "Next + Node.js + Jest + Gsap",
+    imageUrl: "/Projects_img/calculator.png",
+    githubUrl: "https://github.com/danielQ11/chapter",
+    liveUrl: "https://tu-calculator.vercel.app",
     category: "web",
     featured: true
   },
   {
     id: 2,
-    title: "Dashboard Analytics",
-    description: "Panel de control interactivo para visualización de datos empresariales con gráficos dinámicos, filtros avanzados y exportación de reportes en múltiples formatos.",
-    technologies: "Vue.js + Python + D3.js + FastAPI",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    githubUrl: "https://github.com/tu-usuario/analytics-dashboard",
+    title: "Digital library",
+    description: "A digital library with a mongo db database, with all its crud and user and admin view, and also a registration form with validation and database.",
+    technologies: "Next + Typescript + MongoDB + Node.js",
+    imageUrl: "/Projects_img/simulacrum.png",
+    githubUrl: "https://github.com/danielQ11/simulacrum",
     liveUrl: "https://dashboard-demo.vercel.app",
     category: "web",
     featured: true
   },
   {
     id: 3,
-    title: "Mobile Banking App",
-    description: "Aplicación móvil para banca digital con funciones de transferencias, pagos QR, historial de transacciones y notificaciones push seguras.",
-    technologies: "React Native + Firebase + Node.js + MongoDB",
-    imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    githubUrl: "https://github.com/tu-usuario/mobile-banking",
-    category: "mobile",
+    title: "TechNova page",
+    description: "Real e-commerce simulation page with login form and mongoDB database management with moongose for typing products brought from the database on a technology store.",
+    technologies: "Next + Typescript + MongoDB + Node.js",
+    imageUrl: "/Projects_img/technova.png",
+    githubUrl: "https://github.com/danielQ11/Typescript_test",
+    category: "web",
     featured: false
   },
   {
     id: 4,
-    title: "AI Chat Assistant",
-    description: "Asistente de chat inteligente con procesamiento de lenguaje natural, respuestas contextuales y integración con múltiples APIs de servicios.",
-    technologies: "Python + OpenAI + FastAPI + React",
-    splineUrl: "https://prod.spline.design/ai-chat-bot-demo/scene.splinecode",
-    githubUrl: "https://github.com/tu-usuario/ai-chat-assistant",
+    title: "Dashboard Analytics",
+    description: "Interactive control panel for viewing business data with dynamic graphs, advanced filters and exporting reports in multiple formats.",
+    technologies: "Next + Typescript + MongoDB + Node.js + D3.js",
+    splineUrl: "",
+    githubUrl: "https://github.com/danielQ11/Dashboard",
     liveUrl: "https://ai-chat-demo.vercel.app",
-    category: "ai",
+    category: "web",
     featured: true
   },
   {
     id: 5,
     title: "Portfolio Website",
-    description: "Sitio web portfolio personal con animaciones 3D, secciones interactivas y diseño responsivo. Incluye blog integrado y formulario de contacto.",
-    technologies: "Next.js + TypeScript + TailwindCSS + Framer Motion",
-    imageUrl: "/Logos/portfolio-screenshot.png",
-    githubUrl: "https://github.com/tu-usuario/portfolio-website",
+    description: "Personal portfolio website with 3D animations, interactive sections and responsive design. Includes integrated blog and contact form.",
+    technologies: "Next.js + TypeScript + TailwindCSS + GSAP",
+    imageUrl: "/Projects_img/porto.png",
+    githubUrl: "https://github.com/danielQ11/My-portfolio",
     liveUrl: "https://tu-portfolio.vercel.app",
     category: "web",
     featured: false
   },
   {
     id: 6,
-    title: "Desktop Task Manager",
-    description: "Aplicación de escritorio para gestión de tareas con sincronización en la nube, recordatorios inteligentes y modo offline completo.",
-    technologies: "Electron + React + SQLite + Node.js",
-    imageUrl: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    githubUrl: "https://github.com/tu-usuario/task-manager",
-    category: "desktop",
+    title: "Cards travels",
+    description: "A page with letters about tourist attractions with great components with their texts and images referred to.",
+    technologies: "Next + Typescript + Node.js",
+    imageUrl: "/Projects_img/cards.png",
+    githubUrl: "https://github.com/danielQ11/import.exports",
+    category: "web",
     featured: false
   }
 ];
